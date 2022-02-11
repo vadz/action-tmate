@@ -45,7 +45,7 @@ export const execShellCommand = (cmd) => {
  */
 export const getValidatedInput = (key) => {
   const value = core.getInput(key);
-  if (/^[-.+A-Za-z0-9]*$/.test(value)) {
+  if (!/^[-.+A-Za-z0-9:]*$/.test(value)) {
     throw new Error(`Invalid value for '${key}': '${value}'`);
   }
   return value;
